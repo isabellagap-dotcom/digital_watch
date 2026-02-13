@@ -1,0 +1,17 @@
+import tkinter as tk 
+from time import strftime
+
+def atualizar_relogio():
+    hora_atual = strftime('%H:%M:%S')  
+    label_relogio.config(text=hora_atual) 
+    label_relogio.after(1000, atualizar_relogio)  
+
+janela = tk.Tk()
+janela.title("Relógio Digital")
+
+label_relogio = tk.Label(janela, font=('Arial', 80), background='black', foreground='cyan')
+label_relogio.pack(anchor='center')
+
+atualizar_relogio()
+
+janela.mainloop()
